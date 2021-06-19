@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -59,10 +60,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'biolog.urls'
 
+print('BASE_DIR:', BASE_DIR)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # Project
+        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,8 +143,7 @@ LOGIN_URL = '/users/login/'
 import django_heroku
 django_heroku.settings(locals())
 
-import os
-print('DEBUG', os.environ.get('DEBUG'))
+# export DEBUG='TRUE'
 if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 else:
