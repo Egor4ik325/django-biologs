@@ -1,0 +1,5 @@
+# Git tracks only source code and configuration
+biolog_env/
+__pycache__/
+*.sqlite3
+.DS_Store

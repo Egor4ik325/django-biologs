@@ -1,0 +1,23 @@
+{% extends "biologs/base.html" %}
+
+{% block header %}<h1>Biolog bioposts</h1>{% endblock %}
+
+{% block content %}
+  {% for biopost in bioposts %}
+    <div class="card mb-3">
+      <h4 class="card-header d-flex">
+        {{ biopost.title }}
+        <small class="ml-auto">{{ biopost.date_posted|date:'M d, Y' }}</small>
+      </h4>
+
+      <div class="card-body">
+        {{ biopost.text|linebreaks }}
+        <a class="text-secondary" href="{% url 'biologs:biopost' biopost.id %}">view full post</a>
+      </div>
+    </div>
+  {% empty%}
+    <p>No bioposts posted yet.</p>
+  {% endfor %}
+
+  <h3> <a href="{% url 'biologs:create_biopost' %}">create your biopost!</a> </h3>
+{% endblock %}

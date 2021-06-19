@@ -1,0 +1,8 @@
+{% extends "biologs/base.html" %}
+
+{% block header %}<h2>User account</h2>{% endblock %}
+
+{% block content %}
+  <!-- User object is default in template context -->
+  <p>Hello, <span class="font-weight-bold">{{ user.username }}</span>.</p>
+{% endblock %}

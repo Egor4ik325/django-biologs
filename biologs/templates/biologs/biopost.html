@@ -1,0 +1,10 @@
+{% extends "biologs/base.html" %}
+
+{% block header %}<h2 class="d-flex">{{ biopost.title }} <small class="font-weight-bold ml-auto">{{ biopost.date_posted|date:'M d, Y' }}</small></h2>{% endblock %}
+
+{% block content %}
+  <p>{{ biopost.text|linebreaks }}</p>
+  <hr>
+  <p> <a class="text-secondary" href="{% url 'biologs:edit_biopost' biopost.id %}">edit post</a> - 
+  <a class="text-secondary" href="{% url 'biologs:delete_biopost' biopost.id %}">delete post</a> </p>
+{% endblock %}

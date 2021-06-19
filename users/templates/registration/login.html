@@ -1,0 +1,21 @@
+{% extends "biologs/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}
+  <h2>Biolog user log in</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <form class="form" action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+      <button class="btn btn-primary" name="submit"> Try log in </button>
+    {% endbuttons %}
+
+    <input type="hidden" name="next" value="{% url 'biologs:bioposts' %}"/>
+  </form>
+
+{% endblock content %}

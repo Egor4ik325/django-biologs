@@ -1,0 +1,20 @@
+{% extends "biologs/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}<h2>Create biopost</h2>{% endblock %}
+
+{% block content %}
+
+<form class="form" action="{% url 'biologs:create_biopost' %}" method="POST">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  {% buttons %}
+    <button class="btn btn-primary" name="Submit">
+      Create & post!
+    </button>
+  {% endbuttons %}
+
+</form>
+
+{% endblock %}
